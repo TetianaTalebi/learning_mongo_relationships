@@ -18,4 +18,19 @@ mongoose.connect('mongodb://127.0.0.1:27017/relationshipDB')
     console.log(err);
 })
 
+// Defining a schema for a user that can have several addresses
 
+const userSchema = new mongoose.Schema({
+    first: String,
+    last: String,
+    // addresses property is set to an array because a user can have several addresses
+    addresses: [
+        // In this case we are embedding a sub document into a document
+        {
+        street: String,
+        city: String,
+        state: String,
+        country: String
+        }
+    ]
+});
