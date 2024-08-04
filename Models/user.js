@@ -27,6 +27,8 @@ const userSchema = new mongoose.Schema({
     addresses: [
         // In this case we are embedding a sub document into a document
         {
+        // This line of code prevents Mongoose from creating a separate _id for each address
+        _id: {_id: false},
         street: String,
         city: String,
         state: String,
@@ -50,6 +52,7 @@ const makeUser = async () => {
         });
 
         u.addresses.push({
+            
             street: '123 Sesame St.',
             city: 'New York',
             state: 'NY',
