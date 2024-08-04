@@ -67,4 +67,26 @@ const makeUser = async () => {
     }
 }
 
-makeUser();
+// makeUser();
+
+const addAddress = async (id) => {
+    try {
+        const user = await User.findById(id);
+        user.addresses.push(
+            {
+                street: '99 3rd St.',
+                city: 'New York',
+                state: 'NY',
+                country: 'USA'
+            }
+        );
+        const res = await user.save();
+        console.log(res);
+
+    } catch (err) {
+        console.log("There is some error with adding an address to a user");
+        console.log(err);
+    }
+}
+
+addAddress('66aefb532533948ac591a69b');
