@@ -37,3 +37,31 @@ const userSchema = new mongoose.Schema({
 
 // Making a User model
 const User = mongoose.model('User', userSchema);
+
+// Defining a function makeUser, 
+// that is a demo of making an instance of a particular user by using
+// a Model One-to-Many Relationships with Embedded Documents
+
+const makeUser = async () => {
+    try {
+        const u = new User({
+            first: 'Harry',
+            last: 'Potter'
+        });
+
+        u.addresses.push({
+            street: '123 Sesame St.',
+            city: 'New York',
+            state: 'NY',
+            country: 'USA'
+        });
+
+        const res = await u.save();
+        console.log(res);
+    } catch (err) {
+        console.log("Unable to make a user, something went wrong!!!");
+        console.log(err);
+    }
+}
+
+makeUser();
