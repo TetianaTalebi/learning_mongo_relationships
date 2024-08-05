@@ -33,3 +33,7 @@ const productSchema = new mongoose.Schema({
         enum: ['Spring', 'Summer', 'Fall', 'Winter']
     }
 });
+
+// Defining a Mongoose Model for a product
+
+const Product = mongoose.model('Product', productSchema);
