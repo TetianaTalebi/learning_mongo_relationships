@@ -17,3 +17,19 @@ mongoose.connect('mongodb://127.0.0.1:27017/relationshipDB')
     console.log("Oh no, Mongo connection ERROR!!!");
     console.log(err);
 })
+
+// Defining a Mongoose Schema for a product
+
+const productSchema = new mongoose.Schema({
+    name: {type: String,
+        required: true
+    },
+    price: {type: Number,
+        required: true,
+        min: 0
+    },
+    season: {type: String,
+        lowercase: 'true',
+        enum: ['Spring', 'Summer', 'Fall', 'Winter']
+    }
+});
