@@ -33,6 +33,18 @@ const productSchema = new mongoose.Schema({
     }
 });
 
+// Defining a Mongoose Schema for a farm
+
+const farmSchema = new mongoose.Schema({
+    name: String,
+    city: String,
+    products: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Product' // 'Product' is a name of the Product Model
+    }]
+});
+
+
 // Defining a Mongoose Model for a product
 
 const Product = mongoose.model('Product', productSchema);
