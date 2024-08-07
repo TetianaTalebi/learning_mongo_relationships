@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+// Making a shortcut for mongoose.Schema
+const Schema = mongoose.Schema;
+
 // Connection events
 mongoose.connection.on('connected', () => console.log('connected'));
 mongoose.connection.on('open', () => console.log('open'));
