@@ -52,6 +52,10 @@ const farmSchema = new Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
+// Defining a Mongoose Model for a farm
+
+const Farm = mongoose.model('Farm', farmSchema);
+
 // Making a few products
 
 // const makeProducts = async () => {
