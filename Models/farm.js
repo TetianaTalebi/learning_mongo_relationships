@@ -23,7 +23,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/relationshipDB')
 
 // Defining a Mongoose Schema for a product
 
-const productSchema = new mongoose.Schema({
+const productSchema = new Schema({
     name: {type: String,
         required: true
     },
@@ -38,7 +38,7 @@ const productSchema = new mongoose.Schema({
 
 // Defining a Mongoose Schema for a farm
 
-const farmSchema = new mongoose.Schema({
+const farmSchema = new Schema({
     name: String,
     city: String,
     products: [{
