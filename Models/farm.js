@@ -29,7 +29,6 @@ const productSchema = new mongoose.Schema({
         min: 0
     },
     season: {type: String,
-        lowercase: 'true',
         enum: ['Spring', 'Summer', 'Fall', 'Winter']
     }
 });
@@ -37,3 +36,28 @@ const productSchema = new mongoose.Schema({
 // Defining a Mongoose Model for a product
 
 const Product = mongoose.model('Product', productSchema);
+
+// Making a few products
+
+const makeProducts = async () => {
+    try {
+        // Making an array of several products for seeding the data base
+        const productArray = [
+            {name: "Watermelon", price: 1.99, season: "Summer"},
+            {name: "Red apple", price: 2.33, season: "Fall"},
+            {name: "Asparagus", price: 1.50, season: "Spring"},
+            {name: "Strawberry", price: 3.05, season: "Spring"},
+            {name: "Potato", price: 0.90, season: "Fall"}
+        ]
+        const res = await Product.insertMany(productArray);
+
+        console.log(res);
+
+    }
+    catch (err) {
+        console.log("There is some problem with creating of the new products");
+        console.log(err);
+    }
+}
+
+makeProducts();
