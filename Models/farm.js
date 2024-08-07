@@ -83,24 +83,24 @@ const Farm = mongoose.model('Farm', farmSchema);
 
 // Making an instance of a farm in database
 
-const makeFarm = async () => {
-    try {
-        const farm = new Farm({
-            name: "Full Belly Farm",
-            city: "Guinda, CA"
-        });
+// const makeFarm = async () => {
+//     try {
+//         const farm = new Farm({
+//             name: "Full Belly Farm",
+//             city: "Guinda, CA"
+//         });
 
-        const strawberry = await Product.findOne({name: "Strawberry"});
-        farm.products.push(strawberry);
+//         const strawberry = await Product.findOne({name: "Strawberry"});
+//         farm.products.push(strawberry);
 
-        await farm.save();
+//         await farm.save();
 
-        console.log(farm);
-    }
-    catch (err) {
-        console.log("A problem happened while making a farm");
-        console.log(err);
-    }
-}
+//         console.log(farm);
+//     }
+//     catch (err) {
+//         console.log("A problem happened while making a farm");
+//         console.log(err);
+//     }
+// }
 
-makeFarm();
+// makeFarm();
