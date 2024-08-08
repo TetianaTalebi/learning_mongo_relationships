@@ -125,3 +125,15 @@ const Farm = mongoose.model('Farm', farmSchema);
 // };
 
 // addProduct();
+
+// Populating the farm with the products details
+// This time instead of using an async function, the promise is being used
+
+Farm.findOne({name: 'Full Belly Farm'})
+.populate('products')
+.then(farm => console.log(farm))
+.catch((err) => {
+    console.log("Something went wrong with populating the farm with the products");
+    console.log(err);
+})
+
