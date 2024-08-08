@@ -108,20 +108,20 @@ const Farm = mongoose.model('Farm', farmSchema);
 // Defining a function for adding another product to the farm
 // The product is hardcoded for demo purposes
 
-const addProduct = async () => {
-    try {
-        const farm = await Farm.findOne({name: "Full Belly Farm" });
+// const addProduct = async () => {
+//     try {
+//         const farm = await Farm.findOne({name: "Full Belly Farm" });
 
-        const watermelon = await Product.findOne({name: "Watermelon"});
+//         const watermelon = await Product.findOne({name: "Watermelon"});
 
-        farm.products.push(watermelon);
-        await farm.save();
-        console.log(farm);
+//         farm.products.push(watermelon);
+//         await farm.save();
+//         console.log(farm);
 
-    } catch (err) {
-        console.log("Something went wrong with adding another product to the farm");
-        console.log(err);
-    }
-};
+//     } catch (err) {
+//         console.log("Something went wrong with adding another product to the farm");
+//         console.log(err);
+//     }
+// };
 
-addProduct();
+// addProduct();
