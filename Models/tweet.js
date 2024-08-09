@@ -29,3 +29,16 @@ const userSchema = new Schema({
     age: Number
 });
 
+// Defining a Schema for a tweet
+
+const tweetSchema = new Schema({
+    text: String,
+    likes: Number,
+
+    // When it's expected that it will be thousands and more children docs,
+    // it's more efficient to store a reference to a parent on the child document
+    user: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User' // 'User' is a name of a user Model
+    }
+});
