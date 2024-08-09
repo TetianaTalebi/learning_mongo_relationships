@@ -63,7 +63,7 @@ const makeTweets = async() => {
 
         // Pushing an entire user into a tweet, 
         // but Mongoose is going to store only a user's id on a tweet in the database
-        
+
         tweet1.user = user; 
 
         await user.save();
@@ -79,4 +79,28 @@ const makeTweets = async() => {
     
 }
 
-makeTweets();
+// makeTweets();
+
+// The function make2ndTweet hardcodes the 2nd tweet for a user 'User12345'
+const make2ndTweet = async() => {
+    try {
+        const user = await User.findOne({username: 'User12345'});
+
+        const tweet2 = new Tweet({
+            text: 'ha ha ha 😍',
+            likes: 123
+        });
+
+        tweet2.user = user;
+        
+        await tweet2.save();
+
+        console.log(tweet2);
+
+    } catch (err) {
+        console.log("It is a problem with making the 2nd tweet");
+        console.log(err);
+    }
+}
+
+make2ndTweet();
