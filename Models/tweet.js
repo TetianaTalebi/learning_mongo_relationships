@@ -47,3 +47,36 @@ const tweetSchema = new Schema({
 
 const User = mongoose.model('User', userSchema);
 const Tweet = mongoose.model('Tweet', tweetSchema);
+
+// Defining an async function makeTweets that hardcodes an instances of a user and a tweet
+const makeTweets = async() => {
+    try {
+        const user = new User({
+            username: 'User12345',
+            age: 18
+        });
+
+        const tweet1 = new Tweet({
+            text: 'lol 😂🤣',
+            likes: 51
+        });
+
+        // Pushing an entire user into a tweet, 
+        // but Mongoose is going to store only a user's id on a tweet in the database
+        
+        tweet1.user = user; 
+
+        await user.save();
+        await tweet1.save();
+
+        console.log(user);
+        console.log(tweet1);
+
+    } catch (err) {
+        console.log("Oh no, something went wrong with making a user and a tweet");
+        console.log(err);
+    }
+    
+}
+
+makeTweets();
