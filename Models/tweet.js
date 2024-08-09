@@ -42,3 +42,8 @@ const tweetSchema = new Schema({
         ref: 'User' // 'User' is a name of a user Model
     }
 });
+
+// Making 2 Models - for a user and for a tweet
+
+const User = mongoose.model('User', userSchema);
+const Tweet = mongoose.model('Tweet', tweetSchema);
