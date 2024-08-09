@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 // Making a shortcut for mongoose.Schema
-const Schema = mongoose.Schema;
+const {Schema} = mongoose; // Destructuring const Schema from a mongoose object
+// const Schema = mongoose.Schema;
 
 // Connection events
 mongoose.connection.on('connected', () => console.log('connected'));
@@ -19,5 +20,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/relationshipDB')
 .catch((err) => {
     console.log("Oh no, Mongo connection ERROR!!!");
     console.log(err);
-})
+});
+
+// Defining a Schema for a user
+
+const userSchema = new Schema({
+    username: String,
+    age: Number
+});
 
