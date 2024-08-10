@@ -103,4 +103,19 @@ const make2ndTweet = async() => {
     }
 }
 
-make2ndTweet();
+// make2ndTweet();
+
+// Defining a function findTweet that finds the first matching tweet and populate its user data
+
+const findTweet = async () => {
+    try {
+        const t = await Tweet.findOne({}).populate('user');
+        console.log(t);
+    } 
+    catch (err) {
+        console.log("There is some problem with finding a tweet");
+        console.log(err);
+    }
+};
+
+findTweet();
